@@ -21,6 +21,8 @@ public class CategoriaResource {
 	@Autowired
 	private CategoriaService service;
 	
+	// Método para Buscar uma Nova Categoria
+	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
@@ -46,5 +48,15 @@ public class CategoriaResource {
 		return ResponseEntity.noContent().build();
 		
 	}
+	
+	// Método para Deletar uma Categoria
+	
+		@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+		public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
+			service.deleteById(id);
+			return ResponseEntity.noContent().build();
+			
+		}
+	
 	
 }
